@@ -1,5 +1,5 @@
 ﻿@using Dapper.Project.Models.DTOS
-@model IEnumerable<CountryDto>
+@model List<Airline>
 
 <div class="col-lg-8 col-md-6 mb-md-0 mb-4">
     <div class="card">
@@ -27,7 +27,7 @@
                 <table class="table align-items-center mb-0">
                     <thead>
                         <tr>
-                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Ülke Adı</th>
+                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Havalimanları</th>
 
                         </tr>
                     </thead>
@@ -39,19 +39,17 @@
                                     <div class="d-flex px-2 py-1">
 
                                         <div class="d-flex flex-column justify-content-center">
-                                            <h6 class="mb-0 text-sm">@item.CountryName</h6>
+                                            <h6 class="mb-0 text-sm">@item.AirportName</h6>
                                         </div>
                                     </div>
                                 </td>
-                               
+
 
 
                             </tr>
+
                         }
-                      
-                        
-
-
+                     
                     </tbody>
                 </table>
             </div>

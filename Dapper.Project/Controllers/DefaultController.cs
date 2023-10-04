@@ -49,12 +49,12 @@ namespace Dapper.Project.Controllers
 
             return View();
         }
-       //public async Task<PartialViewResult> CountryList()
-       // {
+        //public async Task<PartialViewResult> CountryList()
+        //{
 
-       //     var value= await _service.GetlistCountry();
+        //    var value = await _service.GetlistCountry();
 
-       //     return PartialView(value);
-       // }
+        //    return PartialView(value);
+        //}
     }
 }

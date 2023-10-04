@@ -18,12 +18,12 @@ namespace Dapper.Project.Services
             return value.ToList();
         }
 
-        public async Task<List<CountryDto>> GetlistCountry()
+        public async Task<List<Airline>> GetlistCountry()
         {
             await using var connection = new SqlConnection(_connectionString);
 
 
-            var values = (await connection.QueryAsync<CountryDto>("select top 6 CountryName from dbo.Airline"));
+            var values = (await connection.QueryAsync<Airline>("select top 6 AirportName from dbo.Airline"));
             return values.ToList();
         }
 

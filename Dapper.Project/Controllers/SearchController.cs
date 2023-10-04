@@ -2,8 +2,7 @@
 using Dapper.Project.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Data.SqlClient;
-using System.Numerics;
-
+using System.Diagnostics;
 namespace Dapper.Project.Controllers
 {
     public class SearchController : Controller
@@ -25,12 +24,22 @@ namespace Dapper.Project.Controllers
 
             if (!string.IsNullOrEmpty(searchString))
             {
+               
 
                 query = "SELECT * FROM dbo.Airline WHERE AirportName LIKE @SearchString";
                 searchString = $"%{searchString}%";
+
+               
             }
+            Stopwatch stopwatch = new Stopwatch();
+            stopwatch.Start();
 
             var values = await connection.QueryAsync<Airline>(query, new { SearchString = searchString });
+
+            stopwatch.Stop();
+            TimeSpan time = stopwatch.Elapsed;
+            ViewBag.timeSpanDapper = time.TotalSeconds.ToString();
+
             return View(values);
         }
     }
